@@ -30,24 +30,24 @@ export default function App() {
   const [exp1Slide, setExp1Slide] = useState(0);
   const [exp2Slide, setExp2Slide] = useState(0);
   const [doscomSlide, setDoscomSlide] = useState(0);
-  const exp1Photos = ['/teknologiserverindonesia1.jpeg', '/teknologiserverindonesia2.jpeg'];
-  const exp2Photos = ['/rsud1.jpg', '/rsud2.jpg', '/rsud3.jpg', '/rsud4.jpeg', '/rsud5.jpeg'];
-  const doscomPhotos = ['/doscom2.jpeg', '/doscom3.jpeg', '/doscom4.jpeg', '/doscom5.jpeg', '/doscom6.jpeg', '/doscom7.jpeg', '/doscom8.jpeg', '/doscom9.jpeg'];
+  const exp1Photos = ['teknologiserverindonesia1.jpeg', 'teknologiserverindonesia2.jpeg'];
+  const exp2Photos = ['rsud1.jpg', 'rsud2.jpg', 'rsud3.jpg', 'rsud4.jpeg', 'rsud5.jpeg'];
+  const doscomPhotos = ['doscom2.jpeg', 'doscom3.jpeg', 'doscom4.jpeg', 'doscom5.jpeg', 'doscom6.jpeg', 'doscom7.jpeg', 'doscom8.jpeg', 'doscom9.jpeg'];
 
   const achievements = [
-    { company: 'OpenAI', logo: 'https://logo.clearbit.com/openai.com', year: '2026', desc: 'Inducted into the OpenAI Hall of Fame for reporting valid security vulnerabilities within their infrastructure.', type: 'Hall of Fame Inductee', img: '/hof-openai.jpg' },
-    { company: 'Perplexity AI', logo: 'https://logo.clearbit.com/perplexity.ai', year: '2026', desc: 'Recognized in the Perplexity AI Hall of Fame for contributing successful security bug submissions.', type: 'Hall of Fame', img: '/hof-perplexity.jpg' },
-    { company: 'Samsung Mobile', logo: 'https://logo.clearbit.com/samsung.com', year: 'Bounty', desc: 'Awarded a bounty by Samsung Mobile for identifying vulnerabilities in their self-hosted bug bounty program.', type: 'Bug Bounty Award', isBounty: true, img: '/hof-samsung.jpg' },
-    { company: 'Arc Browser', logo: 'https://logo.clearbit.com/arc.net', year: '2025', desc: 'Achieved the #10 spot in "The Browser of NYC" Hall of Fame for reporting multiple valid flaws in Arc Browser.', type: 'Top 10 Researcher', img: '/hof-browsercompany.webp' },
-    { company: 'Brave Software', logo: 'https://logo.clearbit.com/brave.com', year: '2025', desc: 'Listed in the Brave Software Bug Hunter Hall of Fame following successful vulnerability disclosures.', type: 'Bug Hunter Hall of Fame', img: '/hof-brave.jpg' },
+    { company: 'OpenAI', logo: 'https://logo.clearbit.com/openai.com', year: '2026', desc: 'Inducted into the OpenAI Hall of Fame for reporting valid security vulnerabilities within their infrastructure.', type: 'Hall of Fame Inductee', img: 'hof-openai.jpg' },
+    { company: 'Perplexity AI', logo: 'https://logo.clearbit.com/perplexity.ai', year: '2026', desc: 'Recognized in the Perplexity AI Hall of Fame for contributing successful security bug submissions.', type: 'Hall of Fame', img: 'hof-perplexity.jpg' },
+    { company: 'Samsung Mobile', logo: 'https://logo.clearbit.com/samsung.com', year: 'Bounty', desc: 'Awarded a bounty by Samsung Mobile for identifying vulnerabilities in their self-hosted bug bounty program.', type: 'Bug Bounty Award', isBounty: true, img: 'hof-samsung.jpg' },
+    { company: 'Arc Browser', logo: 'https://logo.clearbit.com/arc.net', year: '2025', desc: 'Achieved the #10 spot in "The Browser of NYC" Hall of Fame for reporting multiple valid flaws in Arc Browser.', type: 'Top 10 Researcher', img: 'hof-browsercompany.webp' },
+    { company: 'Brave Software', logo: 'https://logo.clearbit.com/brave.com', year: '2025', desc: 'Listed in the Brave Software Bug Hunter Hall of Fame following successful vulnerability disclosures.', type: 'Bug Hunter Hall of Fame', img: 'hof-brave.jpg' },
   ];
 
   const certs = [
     { cert: 'CEH', name: 'Certified Ethical Hacker', org: 'EC-Council' },
     { cert: 'CRTA', name: 'Certified Red Team Analyst', org: 'CyberWarfare Labs' },
-    { cert: 'CNSP', name: 'Network Security Practitioner', org: 'The SecOps Group', img: '/CNSP.jpg' },
-    { cert: 'C3SA', name: 'Cyber Security Analyst', org: 'CyberWarfare Labs', img: '/C3SA.jpg' },
-    { cert: 'FCA', name: 'Fortinet Certified Associate', org: 'Fortinet', img: '/FCA.jpg' },
+    { cert: 'CNSP', name: 'Network Security Practitioner', org: 'The SecOps Group', img: 'CNSP.jpg' },
+    { cert: 'C3SA', name: 'Cyber Security Analyst', org: 'CyberWarfare Labs', img: 'C3SA.jpg' },
+    { cert: 'FCA', name: 'Fortinet Certified Associate', org: 'Fortinet', img: 'FCA.jpg' },
     { cert: 'JWD', name: 'Junior Web Developer', org: 'BNSP' },
   ];
 
@@ -169,7 +169,7 @@ export default function App() {
                 {/* Lighter glow behind */}
                 <div className="absolute -inset-6 bg-gradient-to-tr from-accent/20 via-transparent to-gold/20 rounded-full blur-[40px] group-hover:blur-[60px] group-hover:scale-105 transition-all duration-700 pointer-events-none" />
                 <div className="relative h-full w-full bg-white border-4 border-white rounded-full overflow-hidden shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] group-hover:shadow-[0_30px_50px_-10px_rgba(0,0,0,0.2)] group-hover:-translate-y-2 transition-all duration-700">
-                  <img src="profile.jpg" alt="Arya Widyanto" className="absolute inset-0 w-full h-full object-cover z-10 group-hover:scale-110 transition-transform duration-1000 ease-out" />
+                  <img src={`${import.meta.env.BASE_URL}profile.jpg`} alt="Arya Widyanto" className="absolute inset-0 w-full h-full object-cover z-10 group-hover:scale-110 transition-transform duration-1000 ease-out" />
                 </div>
                 
                 {/* Floating Premium Light Badge */}
@@ -578,7 +578,7 @@ export default function App() {
                   <div className="p-8 md:p-12 lg:w-1/2 flex flex-col items-start relative group/col2 transition-all duration-700 hover:bg-white/90">
                     <div className="w-20 h-20 bg-gradient-to-br from-white to-surface rounded-[1.5rem] border border-white/80 ring-1 ring-border-subtle/40 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.08)] flex flex-col items-center justify-center mb-8 relative group/logo overflow-hidden transition-all duration-700 shrink-0 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-5px_rgba(56,189,248,0.15)] hover:ring-accent/40">
                       <div className="absolute inset-0 bg-gradient-to-tr from-accent/0 to-accent/10 opacity-0 group-hover/logo:opacity-100 transition-opacity duration-700" />
-                      <img src="/udinus.png" alt="Universitas Dian Nuswantoro Logo" className="absolute inset-0 w-full h-full object-contain p-3 z-10 bg-transparent mix-blend-multiply" />
+                      <img src={`${import.meta.env.BASE_URL}/udinus.png`} alt="Universitas Dian Nuswantoro Logo" className="absolute inset-0 w-full h-full object-contain p-3 z-10 bg-transparent mix-blend-multiply" />
                     </div>
 
                     <span className="inline-flex px-4 py-1.5 bg-surface-alt border border-white/50 ring-1 ring-border-subtle/30 text-navy-900 text-[10px] font-bold tracking-[0.2em] uppercase mb-5 rounded-full shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] backdrop-blur-md">Academic Background</span>
@@ -669,7 +669,7 @@ export default function App() {
                     {item.img ? (
                       <div className="relative w-full h-full p-4 md:p-6 flex items-center justify-center">
                          {/* Subtle shadow matching the image bounds using drop-shadow on the image itself */}
-                         <img src={item.img} alt={item.title} className="w-full h-full object-contain relative z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:scale-110 group-hover:drop-shadow-[0_20px_35px_rgba(0,0,0,0.25)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" />
+                         <img src={`${import.meta.env.BASE_URL}${item.img}`} alt={item.title} className="w-full h-full object-contain relative z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] group-hover:scale-110 group-hover:drop-shadow-[0_20px_35px_rgba(0,0,0,0.25)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" />
                       </div>
                     ) : (
                       <div className="flex flex-col items-center justify-center text-navy-900/40 group-hover:text-accent/60 transition-colors z-10 relative">
@@ -745,9 +745,8 @@ export default function App() {
                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.04)_1px,transparent_0)]" style={{backgroundSize: '16px 16px'}} />
                        
                        {/* Logo/Image Placement */}
-                       {/* @ts-ignore: Assuming img property will be added dynamically by user later */}
                        {item.img ? (
-                         <img src={(item as any).img} alt={item.title} className="w-full h-full object-contain p-4 relative z-10 group-hover:scale-110 drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" />
+                         <img src={`${import.meta.env.BASE_URL}/${item.img}`} alt={item.title} className="w-full h-full object-contain p-4 relative z-10 group-hover:scale-110 drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" />
                        ) : (
                          <div className="flex flex-col items-center justify-center z-10 opacity-30 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110">
                            <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-3 shadow-[inset_0_2px_10px_rgba(255,255,255,0.05)] border border-white/5">
@@ -903,7 +902,7 @@ export default function App() {
                     {/* @ts-ignore */}
                     {item.img ? (
                       /* @ts-ignore */
-                      <img src={item.img} alt={item.cert} className="absolute inset-0 w-full h-full object-contain p-6 z-0 group-hover:scale-[1.05] group-hover:rotate-1 transition-transform duration-700 ease-out mix-blend-multiply" />
+                      <img src={`${import.meta.env.BASE_URL}${item.img}`} alt={item.cert} className="absolute inset-0 w-full h-full object-contain p-6 z-0 group-hover:scale-[1.05] group-hover:rotate-1 transition-transform duration-700 ease-out mix-blend-multiply" />
                     ) : (
                       <div className="flex flex-col items-center justify-center absolute inset-0 z-10 opacity-70 group-hover:opacity-100 transition-all duration-500">
                         <div className="w-20 h-20 bg-cyan-50 rounded-2xl flex items-center justify-center mb-3 shadow-[inset_0_2px_15px_rgba(6,182,212,0.2)] border border-cyan-200">
