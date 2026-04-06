@@ -157,7 +157,7 @@ export default function App() {
                 <a href="mailto:utomoa448@gmail.com" className="bg-navy-900 text-white px-8 py-3.5 rounded-full font-bold text-sm hover:bg-navy-800 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(10,16,31,0.2)] active:scale-[0.97] transition-all duration-300 flex items-center justify-center">
                   Connect With Me
                 </a>
-                <a href="cv-arya.pdf" download className="bg-white text-navy-900 border border-border-subtle px-8 py-3.5 rounded-full font-bold text-sm hover:bg-surface-alt hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.05)] active:scale-[0.97] transition-all duration-300 flex items-center gap-2">
+                <a href={`${import.meta.env.BASE_URL}cv-arya.pdf`} download className="bg-white text-navy-900 border border-border-subtle px-8 py-3.5 rounded-full font-bold text-sm hover:bg-surface-alt hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.05)] active:scale-[0.97] transition-all duration-300 flex items-center gap-2">
                   <span className="material-symbols-outlined text-[18px]">download</span>
                   Download CV
                 </a>
@@ -270,7 +270,7 @@ export default function App() {
 
                   {/* Full Card Image presentation */}
                   <div className="w-full aspect-[16/10] relative overflow-hidden rounded-t-[2rem]">
-                    <img src={a.img} alt={a.company} className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700 ease-out" />
+                    <img src={`${import.meta.env.BASE_URL}${a.img}`} alt={a.company} className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700 ease-out" />
                     
                     {/* Dramatic Gradients for 3D depth */}
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent z-10" />
@@ -578,7 +578,7 @@ export default function App() {
                   <div className="p-8 md:p-12 lg:w-1/2 flex flex-col items-start relative group/col2 transition-all duration-700 hover:bg-white/90">
                     <div className="w-20 h-20 bg-gradient-to-br from-white to-surface rounded-[1.5rem] border border-white/80 ring-1 ring-border-subtle/40 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.08)] flex flex-col items-center justify-center mb-8 relative group/logo overflow-hidden transition-all duration-700 shrink-0 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-5px_rgba(56,189,248,0.15)] hover:ring-accent/40">
                       <div className="absolute inset-0 bg-gradient-to-tr from-accent/0 to-accent/10 opacity-0 group-hover/logo:opacity-100 transition-opacity duration-700" />
-                      <img src={`${import.meta.env.BASE_URL}/udinus.png`} alt="Universitas Dian Nuswantoro Logo" className="absolute inset-0 w-full h-full object-contain p-3 z-10 bg-transparent mix-blend-multiply" />
+                      <img src={`${import.meta.env.BASE_URL}udinus.png`} alt="Universitas Dian Nuswantoro Logo" className="absolute inset-0 w-full h-full object-contain p-3 z-10 bg-transparent mix-blend-multiply" />
                     </div>
 
                     <span className="inline-flex px-4 py-1.5 bg-surface-alt border border-white/50 ring-1 ring-border-subtle/30 text-navy-900 text-[10px] font-bold tracking-[0.2em] uppercase mb-5 rounded-full shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] backdrop-blur-md">Academic Background</span>
@@ -746,7 +746,7 @@ export default function App() {
                        
                        {/* Logo/Image Placement */}
                        {item.img ? (
-                         <img src={`${import.meta.env.BASE_URL}/${item.img}`} alt={item.title} className="w-full h-full object-contain p-4 relative z-10 group-hover:scale-110 drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" />
+                         <img src={`${import.meta.env.BASE_URL}${item.img}`} alt={item.title} className="w-full h-full object-contain p-4 relative z-10 group-hover:scale-110 drop-shadow-[0_15px_25px_rgba(0,0,0,0.6)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" />
                        ) : (
                          <div className="flex flex-col items-center justify-center z-10 opacity-30 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110">
                            <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-3 shadow-[inset_0_2px_10px_rgba(255,255,255,0.05)] border border-white/5">
