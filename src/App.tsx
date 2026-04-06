@@ -157,7 +157,7 @@ export default function App() {
                 <a href="mailto:utomoa448@gmail.com" className="bg-navy-900 text-white px-8 py-3.5 rounded-full font-bold text-sm hover:bg-navy-800 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(10,16,31,0.2)] active:scale-[0.97] transition-all duration-300 flex items-center justify-center">
                   Connect With Me
                 </a>
-                <a href="/cv-arya.pdf" download className="bg-white text-navy-900 border border-border-subtle px-8 py-3.5 rounded-full font-bold text-sm hover:bg-surface-alt hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.05)] active:scale-[0.97] transition-all duration-300 flex items-center gap-2">
+                <a href="cv-arya.pdf" download className="bg-white text-navy-900 border border-border-subtle px-8 py-3.5 rounded-full font-bold text-sm hover:bg-surface-alt hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.05)] active:scale-[0.97] transition-all duration-300 flex items-center gap-2">
                   <span className="material-symbols-outlined text-[18px]">download</span>
                   Download CV
                 </a>
@@ -169,7 +169,7 @@ export default function App() {
                 {/* Lighter glow behind */}
                 <div className="absolute -inset-6 bg-gradient-to-tr from-accent/20 via-transparent to-gold/20 rounded-full blur-[40px] group-hover:blur-[60px] group-hover:scale-105 transition-all duration-700 pointer-events-none" />
                 <div className="relative h-full w-full bg-white border-4 border-white rounded-full overflow-hidden shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] group-hover:shadow-[0_30px_50px_-10px_rgba(0,0,0,0.2)] group-hover:-translate-y-2 transition-all duration-700">
-                  <img src="/profile.jpg" alt="Arya Widyanto" className="absolute inset-0 w-full h-full object-cover z-10 group-hover:scale-110 transition-transform duration-1000 ease-out" />
+                  <img src="profile.jpg" alt="Arya Widyanto" className="absolute inset-0 w-full h-full object-cover z-10 group-hover:scale-110 transition-transform duration-1000 ease-out" />
                 </div>
                 
                 {/* Floating Premium Light Badge */}
@@ -723,13 +723,13 @@ export default function App() {
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: 'SentraMind', tech: 'AI · Cybersecurity', desc: 'SentraMind combines advanced AI technology with cybersecurity expertise to provide comprehensive threat detection, log analysis, and security insights for your organization.', icon: 'memory', link: 'https://sentramind.biz.id/', img: '/sentramind.png' },
-                { title: 'S1C0N', tech: 'Reconnaissance · Security', desc: 'Simple recon tool to help you search for vulnerabilities and execute automated reconnaissance on target web servers.', icon: 'radar', link: 'https://github.com/Kentox493/sicon-web', img: '/S1C0N.png' },
-                { title: 'Sercing', tech: 'Python · SerpAPI', desc: 'Automated File Search & Download Tool! 🚀 Your go-to solution for searching and downloading specific files from a given domain, powered by Google Dorking via SerpAPI.', icon: 'search', link: 'https://github.com/Kentox493/Sercing', img: '/sercing.png' },
-                { title: 'ScanexEZ', tech: 'Python · Automation', desc: 'ScanexEZ is an advanced, yet user-friendly, penetration testing tool designed to automate the scanning of URL parameters for common web vulnerabilities.', icon: 'security', link: 'https://github.com/Kentox493/ScanexEZ', img: '/scanexez.png' },
-                { title: 'Ransom-Simulator', tech: 'Cryptography · RSA-4096', desc: 'A ransomware simulator using the RSA-4096 bits algorithm. It simulates how ransomware works, where victim files are encrypted using RSA encryption and decrypted via private key.', icon: 'lock', link: 'https://github.com/Kentox493/Ransom-Simulator', img: '/ransom.png' },
-                { title: 'OSecure', tech: 'GUI · Firewall Config', desc: 'OSecure is a user-friendly GUI application designed to simplify the management and configuration of firewalls across different systems without requiring deep technical knowledge.', icon: 'shield', link: 'https://github.com/Kentox493/OSecure', img: '/osecure.png' },
-                { title: 'AESTXT', tech: 'Python · AES', desc: 'AESTXT is a Python tool for AES encryption and decryption, supporting multiple modes of operation (ECB, CBC, CTR, GCM). It securely encrypts/decrypts data with customizable parameters.', icon: 'key', link: 'https://github.com/Kentox493/AESTXT', img: '/AESTXT.jpg' },
+                { title: 'SentraMind', tech: 'AI · Cybersecurity', desc: 'SentraMind combines advanced AI technology with cybersecurity expertise to provide comprehensive threat detection, log analysis, and security insights for your organization.', icon: 'memory', link: 'https://sentramind.biz.id/', img: 'sentramind.png' },
+                { title: 'S1C0N', tech: 'Reconnaissance · Security', desc: 'Simple recon tool to help you search for vulnerabilities and execute automated reconnaissance on target web servers.', icon: 'radar', link: 'https://github.com/Kentox493/sicon-web', img: 'S1C0N.png' },
+                { title: 'Sercing', tech: 'Python · SerpAPI', desc: 'Automated File Search & Download Tool! 🚀 Your go-to solution for searching and downloading specific files from a given domain, powered by Google Dorking via SerpAPI.', icon: 'search', link: 'https://github.com/Kentox493/Sercing', img: 'sercing.png' },
+                { title: 'ScanexEZ', tech: 'Python · Automation', desc: 'ScanexEZ is an advanced, yet user-friendly, penetration testing tool designed to automate the scanning of URL parameters for common web vulnerabilities.', icon: 'security', link: 'https://github.com/Kentox493/ScanexEZ', img: 'scanexez.png' },
+                { title: 'Ransom-Simulator', tech: 'Cryptography · RSA-4096', desc: 'A ransomware simulator using the RSA-4096 bits algorithm. It simulates how ransomware works, where victim files are encrypted using RSA encryption and decrypted via private key.', icon: 'lock', link: 'https://github.com/Kentox493/Ransom-Simulator', img: 'ransom.png' },
+                { title: 'OSecure', tech: 'GUI · Firewall Config', desc: 'OSecure is a user-friendly GUI application designed to simplify the management and configuration of firewalls across different systems without requiring deep technical knowledge.', icon: 'shield', link: 'https://github.com/Kentox493/OSecure', img: 'osecure.png' },
+                { title: 'AESTXT', tech: 'Python · AES', desc: 'AESTXT is a Python tool for AES encryption and decryption, supporting multiple modes of operation (ECB, CBC, CTR, GCM). It securely encrypts/decrypts data with customizable parameters.', icon: 'key', link: 'https://github.com/Kentox493/AESTXT', img: 'AESTXT.jpg' },
               ].map((item, i) => (
                 <div key={i} className={`reveal ${i > 0 ? `reveal-delay-${Math.min((i%3), 2)}` : ''} relative p-[1px] rounded-[2.5rem] bg-gradient-to-b from-white/15 via-white/5 to-transparent hover:from-accent/50 hover:via-accent/10 transition-all duration-700 group hover:-translate-y-3 shadow-[0_20px_50px_-20px_rgba(0,0,0,1)] hover:shadow-[0_40px_60px_-20px_rgba(0,0,0,1)]`}>
                   
