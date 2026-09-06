@@ -34,19 +34,23 @@ export default function App() {
   const [exp1Slide, setExp1Slide] = useState(0);
   const [exp2Slide, setExp2Slide] = useState(0);
   const [doscomSlide, setDoscomSlide] = useState(0);
+  const [writeupPage, setWriteupPage] = useState(1);
   const exp1Photos = ['teknologiserverindonesia1.jpeg', 'teknologiserverindonesia2.jpeg'];
   const exp2Photos = ['rsud1.jpg', 'rsud2.jpg', 'rsud3.jpg', 'rsud4.jpeg', 'rsud5.jpeg'];
   const doscomPhotos = ['doscom2.jpeg', 'doscom3.jpeg', 'doscom4.jpeg', 'doscom5.jpeg', 'doscom6.jpeg', 'doscom7.jpeg', 'doscom8.jpeg', 'doscom9.jpeg'];
 
   const achievements = [
-    { company: 'OpenAI', year: '2026', desc: 'Inducted into the OpenAI Hall of Fame for reporting valid security vulnerabilities within their infrastructure.', type: 'Hall of Fame Inductee', img: 'hof-openai.jpg' },
-    { company: 'Perplexity AI', year: '2026', desc: 'Recognized in the Perplexity AI Hall of Fame for contributing successful security bug submissions.', type: 'Hall of Fame', img: 'hof-perplexity.jpg' },
-    { company: 'Samsung Mobile', year: '2026', desc: 'Awarded a bounty by Samsung Mobile for identifying vulnerabilities in their self-hosted bug bounty program.', type: 'Bug Bounty Award', isBounty: true, img: 'hof-samsung.jpg' },
-    { company: 'Arc Browser', year: '2025', desc: 'Achieved the #10 spot in "The Browser of NYC" Hall of Fame for reporting multiple valid flaws in Arc Browser.', type: 'Top 10 Researcher', img: 'hof-browsercompany.webp' },
-    { company: 'Brave Software', year: '2025', desc: 'Listed in the Brave Software Bug Hunter Hall of Fame following successful vulnerability disclosures.', type: 'Bug Hunter Hall of Fame', img: 'hof-brave.jpg' },
+    { company: 'OpenAI', year: 'Top 100', desc: 'Ranked within the Top 100 security researchers globally of all time in OpenAI\'s Bug Bounty Program.', type: 'Top 100 Global (All-Time)', img: 'hof-openai.jpg' },
+    { company: 'TryHackMe', year: 'Top 1%', desc: 'Ranked in the Global Top 1% of cybersecurity practitioners on TryHackMe (#14,959), completing 240+ rooms with 39 badges.', type: 'Global Top 1% Rank', img: 'hof-tryhackme.png' },
+    { company: 'Arc Browser', year: 'Top 11', desc: 'Achieved the #11 spot in "The Browser Company of New York" Hall of Fame in 2025 for discovering and responsibly reporting multiple valid flaws.', type: 'Top 11 Researcher (2025)', img: 'hof-browsercompany.webp' },
+    { company: 'Brave Software', year: 'Top 21', desc: 'Ranked #21 in the Brave Software Bug Hunter Hall of Fame in 2025 following verified vulnerability disclosures.', type: 'Top 21 Researcher (2025)', img: 'hof-brave.jpg' },
+    { company: 'Perplexity AI', year: '2026', desc: 'Inducted into the Perplexity AI Vulnerability Disclosure Program (VDP) Hall of Fame for responsibly reporting valid security flaws.', type: 'VDP Hall of Fame', img: 'hof-perplexity.jpg' },
+    { company: 'Samsung Mobile', year: '2026', desc: 'Awarded a bounty by Samsung Mobile for identifying valid vulnerabilities within their self-hosted bug bounty program.', type: 'Bug Bounty Award', isBounty: true, img: 'hof-samsung.jpg' },
   ];
 
   const certs = [
+    { cert: 'SAL1', name: 'Security Analyst Level 1 (SAL1)', org: 'TryHackMe', img: 'SAL1.png' },
+    { cert: 'SEC1', name: 'Cyber Security 101 (SEC1)', org: 'TryHackMe', img: 'SEC1.png' },
     { cert: 'CNSP', name: 'Network Security Practitioner', org: 'The SecOps Group', img: 'CNSP.jpg' },
     { cert: 'C3SA', name: 'Cyber Security Analyst', org: 'CyberWarfare Labs', img: 'C3SA.jpg' },
     { cert: 'FCA', name: 'Fortinet Certified Associate', org: 'Fortinet', img: 'FCA.jpg' },
@@ -55,11 +59,11 @@ export default function App() {
 
   const navItems = [
     { label: 'Expertise', id: 'expertise' },
+    { label: 'Credentials', id: 'credentials' },
     { label: 'Achievements', id: 'achievements' },
     { label: 'Experience', id: 'experience' },
     { label: 'Projects', id: 'projects' },
     { label: 'Write-ups', id: 'writeups' },
-    { label: 'Credentials', id: 'credentials' },
   ];
 
   /* Reusable section header */
@@ -132,7 +136,7 @@ export default function App() {
 
           <div className="flex items-center gap-3">
             <a
-              href="https://drive.google.com/file/d/1Z6-LD_EhMWkpPAvYzOfaXdyu6Qcsa5vH/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Yv_PW5OFPW81vbdbP1xjThGN8VCSGG4c/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:flex items-center gap-1.5 text-xs font-medium text-zinc-500 hover:text-zinc-900 transition-colors cursor-pointer"
@@ -180,9 +184,15 @@ export default function App() {
         <section className="relative pt-32 pb-20 md:pt-32 md:pb-28 px-8 md:px-12 bg-zinc-50 overflow-hidden">
           <div className="max-w-5xl mx-auto grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             <div className="lg:col-span-7 space-y-6">
-              <div className="reveal inline-flex items-center gap-2 px-3 py-1 bg-white border border-zinc-200 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span className="text-zinc-600 font-medium text-xs">Available for engagements</span>
+              <div className="reveal flex flex-wrap items-center gap-2.5">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-zinc-200 rounded-full shadow-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span className="text-zinc-600 font-medium text-xs">Available for engagements</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-zinc-200 rounded-full shadow-sm">
+                  <span className="material-symbols-outlined text-accent text-sm">military_tech</span>
+                  <span className="text-zinc-700 font-medium text-xs">Top 1% Globally on TryHackMe</span>
+                </div>
               </div>
 
               <h1 className="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-[3.5rem] font-headline font-extrabold text-zinc-900 tracking-tight leading-[1.1]">
@@ -199,6 +209,7 @@ export default function App() {
                   { icon: 'shield', label: 'Pentester' },
                   { icon: 'monitoring', label: 'SOC Analyst' },
                   { icon: 'bug_report', label: 'Bug Hunter' },
+                  { icon: 'leaderboard', label: 'THM Top 1%' },
                 ].map((t) => (
                   <span key={t.label} className="inline-flex items-center gap-1.5 bg-white border border-zinc-200 px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-700">
                     <span className="material-symbols-outlined text-accent text-sm">{t.icon}</span>
@@ -211,7 +222,7 @@ export default function App() {
                 <a href="mailto:utomoa448@gmail.com" className="bg-zinc-900 text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-zinc-800 transition-colors duration-200 cursor-pointer">
                   Connect With Me
                 </a>
-                <a href="https://drive.google.com/file/d/1Z6-LD_EhMWkpPAvYzOfaXdyu6Qcsa5vH/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-white text-zinc-900 border border-zinc-200 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-zinc-50 transition-colors duration-200 flex items-center gap-2 cursor-pointer">
+                <a href="https://drive.google.com/file/d/1Yv_PW5OFPW81vbdbP1xjThGN8VCSGG4c/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-white text-zinc-900 border border-zinc-200 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-zinc-50 transition-colors duration-200 flex items-center gap-2 cursor-pointer">
                   <span className="material-symbols-outlined text-base">download</span>
                   Download CV
                 </a>
@@ -246,10 +257,42 @@ export default function App() {
           </div>
         </section>
 
-        {/* ─── HALL OF FAME ─── */}
-        <section className="py-24 px-8 md:px-12 bg-zinc-900 text-white" id="achievements">
+        {/* ─── CREDENTIALS ─── */}
+        <section className="py-24 px-8 md:px-12 bg-zinc-900 text-white" id="credentials">
           <div className="max-w-5xl mx-auto">
-            <SectionHeader dark label="Security Recognition" title="Hall of Fame" description="Recognized by world-class tech companies for identifying and responsibly disclosing critical security vulnerabilities." />
+            <SectionHeader dark label="Verified" title="Professional Credentials" description="Rigorous industry certifications validating deep technical proficiency in offensive and defensive cybersecurity." />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {certs.map((item, i) => (
+                <div key={i} className={`reveal ${i > 0 ? `reveal-delay-${Math.min(i, 5)}` : ''} bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden hover:border-zinc-500 transition-colors duration-300 flex flex-col`}>
+                  <div className="aspect-[4/3] bg-zinc-100 border-b border-zinc-700 relative overflow-hidden flex items-center justify-center">
+                    {item.img ? (
+                      <img src={`${import.meta.env.BASE_URL}${item.img}`} alt={item.cert} className="w-full h-full object-contain p-6" loading="lazy" />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center text-zinc-400">
+                        <span className="material-symbols-outlined text-4xl mb-1" style={{ fontVariationSettings: "'FILL' 1" }}>workspace_premium</span>
+                        <span className="text-[10px] font-medium tracking-wider uppercase">Verified Credential</span>
+                      </div>
+                    )}
+                    <span className="absolute top-4 right-4 px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-md bg-accent text-white">Verified</span>
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="font-headline font-bold text-xl text-white mb-1">{item.cert}</h3>
+                    <p className="text-zinc-400 text-sm mb-4">{item.name}</p>
+                    <div className="mt-auto pt-4 border-t border-zinc-700">
+                      <span className="text-[10px] text-zinc-500 uppercase tracking-wider font-medium block mb-1">Issuing Organization</span>
+                      <span className="text-xs font-semibold text-accent">{item.org}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── ACHIEVEMENTS ─── */}
+        <section className="py-24 px-8 md:px-12 bg-zinc-900 text-white border-t border-zinc-800" id="achievements">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeader dark label="Proven Track Record" title="Achievements" description="From OpenAI's all-time Top 100 to global bug bounty rewards and Top 1% rankings—security research recognized worldwide." />
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {achievements.map((a, i) => (
                 <div key={i} className={`reveal ${i > 0 ? `reveal-delay-${Math.min(i, 5)}` : ''} bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden hover:border-zinc-500 transition-colors duration-300 flex flex-col`}>
@@ -269,14 +312,6 @@ export default function App() {
                   </div>
                 </div>
               ))}
-
-              {/* Stats card */}
-              <div className="reveal reveal-delay-5 bg-zinc-800 border border-zinc-700 rounded-2xl flex flex-col items-center justify-center text-center p-10 min-h-[380px] hover:border-zinc-500 transition-colors duration-300">
-                <span className="material-symbols-outlined text-4xl text-zinc-500 mb-4">public</span>
-                <span className="font-headline font-extrabold text-6xl text-white mb-2">5+</span>
-                <span className="text-accent font-semibold text-xs tracking-widest uppercase mb-3">Global Programs</span>
-                <p className="text-zinc-400 text-sm leading-relaxed max-w-[240px]">Proven track record across leading international bug bounty platforms worldwide.</p>
-              </div>
             </div>
           </div>
         </section>
@@ -425,6 +460,8 @@ export default function App() {
               {[
                 { title: 'Certified Ethical Hacker Academy', org: 'Metrodata', date: '2026', desc: 'Intensive academy program covering advanced ethical hacking techniques, vulnerability assessment, and comprehensive penetration testing methodologies.', img: 'CEH_Academy.jpg' },
                 { title: 'SOC Analyst L1', org: 'TryHackMe', date: '2026', desc: 'Hands-on defensive security training focusing on threat monitoring, triage execution, SIEM utilization, and practical incident response techniques via interactive learning labs.', img: 'SOC_Analyst_L1.png' },
+                { title: 'Cyber Security 101', org: 'TryHackMe', date: '2026', desc: 'Hands-on learning path (45+ hrs) covering network security, web application security, operating systems, and defensive security operations.', img: 'THM_CyberSecurity101.png' },
+                { title: 'Pre Security', org: 'TryHackMe', date: '2026', desc: 'Foundational learning path (19+ hrs) covering networking essentials, web fundamentals, Linux basics, and core cybersecurity principles.', img: 'THM_PreSecurity.png' },
                 { title: 'Penetration Testing', org: 'Redlimit - Meta4sec', date: '2025', desc: 'Training for website penetration, learning several information gathering techniques, recon, and various types of attacks with a bug hunting approach and best practice exploitation.', img: 'Penetration Testing - Redlimit.jpg' },
                 { title: 'Web Security Academy', org: 'PortSwigger', date: '2025', desc: 'Advanced hands-on web vulnerability training covering complex attack vectors like SQLi, XSS, CSRF, and Server-Side Request Forgery developed by industry experts.', img: 'Web Security Academy  - Portswigger.png' },
                 { title: 'Advanced Cyber Security - Threats and Governance', org: 'Great Learning', date: '2024', desc: 'Focused on understanding complex cyber threats, assessing risks, implementing governance frameworks, and aligning security operations with business objectives at a strategic level.', img: 'Advanced Cyber Security Threats and Governance  -  Great Learning.jpg' },
@@ -477,19 +514,25 @@ export default function App() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { title: 'SentraMind', tech: 'AI · Cybersecurity', desc: 'SentraMind combines advanced AI technology with cybersecurity expertise to provide comprehensive threat detection, log analysis, and security insights for your organization.', icon: 'memory', link: 'https://sentramind.biz.id/', img: 'sentramind.png' },
+                { title: 'Fragnesia (CVE-2026-46300)', tech: 'Linux Kernel · LPE · C / Bash', desc: 'Linux Kernel Local Privilege Escalation (LPE) audit & exploit toolkit exploiting a page-cache corruption regression via XFRM ESP-in-TCP (espintcp).', icon: 'terminal', link: 'https://github.com/Kentox493/CVE-2026-46300_Fragnesia' },
+                { title: 'NginxRift (CVE-2026-42945)', tech: 'RCE Exploit · Automation · Python / Bash', desc: 'PoC automation driver for heap-based buffer overflow RCE in NGINX Rift container environments, orchestrating preflight checks to interactive reverse-shell.', icon: 'bolt', link: 'https://github.com/Kentox493/CVE-2026-42945_NginxRift' },
                 { title: 'S1C0N', tech: 'Reconnaissance · Security', desc: 'Simple recon tool to help you search for vulnerabilities and execute automated reconnaissance on target web servers.', icon: 'radar', link: 'https://github.com/Kentox493/sicon-web', img: 'S1C0N.png' },
-                { title: 'Sercing', tech: 'Python · SerpAPI', desc: 'Automated File Search & Download Tool. Your go-to solution for searching and downloading specific files from a given domain, powered by Google Dorking via SerpAPI.', icon: 'search', link: 'https://github.com/Kentox493/Sercing', img: 'sercing.png' },
                 { title: 'ScanexEZ', tech: 'Python · Automation', desc: 'ScanexEZ is an advanced, yet user-friendly, penetration testing tool designed to automate the scanning of URL parameters for common web vulnerabilities.', icon: 'security', link: 'https://github.com/Kentox493/ScanexEZ', img: 'scanexez.png' },
+                { title: 'Sercing', tech: 'Python · SerpAPI', desc: 'Automated File Search & Download Tool. Your go-to solution for searching and downloading specific files from a given domain, powered by Google Dorking via SerpAPI.', icon: 'search', link: 'https://github.com/Kentox493/Sercing', img: 'sercing.png' },
                 { title: 'Ransom-Simulator', tech: 'Cryptography · RSA-4096', desc: 'A ransomware simulator using the RSA-4096 bits algorithm. It simulates how ransomware works, where victim files are encrypted using RSA encryption and decrypted via private key.', icon: 'lock', link: 'https://github.com/Kentox493/Ransom-Simulator', img: 'ransom.png' },
                 { title: 'OSecure', tech: 'GUI · Firewall Config', desc: 'OSecure is a user-friendly GUI application designed to simplify the management and configuration of firewalls across different systems without requiring deep technical knowledge.', icon: 'shield', link: 'https://github.com/Kentox493/OSecure', img: 'osecure.png' },
                 { title: 'AESTXT', tech: 'Python · AES', desc: 'AESTXT is a Python tool for AES encryption and decryption, supporting multiple modes of operation (ECB, CBC, CTR, GCM). It securely encrypts/decrypts data with customizable parameters.', icon: 'key', link: 'https://github.com/Kentox493/AESTXT', img: 'AESTXT.jpg' },
               ].map((item, i) => (
-                <div key={i} className={`reveal ${i > 0 ? `reveal-delay-${Math.min(i % 3, 2)}` : ''} bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden hover:border-zinc-500 transition-colors duration-300 flex flex-col`}>
+                <div key={i} className={`reveal ${i > 0 ? `reveal-delay-${Math.min(i % 3, 2)}` : ''} bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden hover:border-zinc-500 transition-colors duration-300 flex flex-col group`}>
                   <div className="aspect-[2/1] bg-zinc-900 border-b border-zinc-700 relative overflow-hidden flex items-center justify-center">
                     {item.img ? (
                       <img src={`${import.meta.env.BASE_URL}${item.img}`} alt={item.title} className="w-full h-full object-contain p-4" loading="lazy" />
                     ) : (
-                      <span className="material-symbols-outlined text-4xl text-zinc-600">{item.icon}</span>
+                      <div className="w-full h-full flex items-center justify-center bg-zinc-900/90 p-4">
+                        <div className="w-12 h-12 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center shadow-inner group-hover:border-accent/50 transition-all duration-300">
+                          <span className="material-symbols-outlined text-2xl text-zinc-400 group-hover:text-accent transition-colors">{item.icon}</span>
+                        </div>
+                      </div>
                     )}
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
@@ -512,80 +555,143 @@ export default function App() {
         <section className="py-24 px-8 md:px-12 bg-white" id="writeups">
           <div className="max-w-5xl mx-auto">
             <SectionHeader label="Knowledge Sharing" title="Write-ups" description="Detailed technical write-ups documenting vulnerability discoveries, CTF solutions, and security research." />
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { title: '[ BTLO ] Network Analysis — Ransomware', category: 'Network Analysis', date: 'Jun 2026', desc: 'Description: ABC Industries worked day and night for a month to prepare a tender document for a prestigious project that would...', tag: 'Blue Team', link: 'https://medium.com/@utomoa448/btlo-network-analysis-ransomware-9dfa16574b77' },
-                { title: 'SOC127 - SQL Injection Detected', category: 'SOC Operations', date: 'May 2026', desc: 'I am an SOC Analyst L1 ( Lets Defend Practice ), at this moment I got an alert related to SQL Injection, I will make a documentation...', tag: 'Blue Team', link: 'https://medium.com/@utomoa448/soc127-sql-injection-detected-2a9b619e6571' },
-                { title: 'SOC336 - Windows OLE Zero-Click RCE Exploitation Detected (CVE-2025-21298)', category: 'SOC Operations', date: 'May 2026', desc: 'I am an SOC Analyst L1 ( Lets Defend Practice ), at this moment I got an alert related to CVE-2025-21298, I will make a...', tag: 'Blue Team', link: 'https://medium.com/@utomoa448/soc336-windows-ole-zero-click-rce-exploitation-detected-cve-2025-21298-9212f0eaf4f9' },
-                { title: '[ Writed Up ] Hacktrace Rangers - LogBreaker', category: 'CTF Writeup', date: 'May 2026', desc: 'Challenge Description : Karina, a web programmer, has completed a web server development project for her company...', tag: 'CTF', link: 'https://medium.com/@utomoa448/writed-up-hacktrace-rangers-logbreaker-f02efa1a57e2' },
-                { title: '[ Writed Up ] Hacktrace Rangers - PhishHunt', category: 'CTF Writeup', date: 'May 2026', desc: 'Challenge Description : A technical write-up for the PhishHunt challenge on the Hacktrace Rangers platform.', tag: 'CTF', link: 'https://medium.com/@utomoa448/writed-up-hacktrace-rangers-phishhunt-84821dbed70f' },
+
+            {(() => {
+              const allWriteups = [
+                { title: 'CVE-2025-68613: Authenticated RCE via Expression Injection in n8n', category: 'Vulnerability Research', date: 'Sep 2026', desc: 'In-depth analysis of CVE-2025-68613 in n8n, demonstrating how expression injection enables authenticated attackers to achieve arbitrary Remote Code Execution.', tag: 'CVE', link: 'https://medium.com/@utomoa448/cve-2025-68613-authenticated-remote-code-execution-via-expression-injection-pada-n8n-d05705b74cd6' },
+                { title: 'CVE-2025-29927: Next.js Middleware Authorization Bypass', category: 'Vulnerability Research', date: 'Sep 2026', desc: 'Technical breakdown of CVE-2025-29927, analyzing how crafted HTTP headers bypass Next.js middleware security controls to access protected internal routes.', tag: 'CVE', link: 'https://medium.com/@utomoa448/cve-2025-29927-next-js-middleware-bypass-vulnerability-737d8b9d6263' },
+                { title: 'CVE-2021-41773: Apache Path Traversal & Remote Code Execution', category: 'Vulnerability Research', date: 'Sep 2026', desc: 'Comprehensive root-cause analysis and exploit reproduction of the Apache 2.4.49 path traversal vulnerability escalating into RCE via mod_cgi.', tag: 'CVE', link: 'https://medium.com/@utomoa448/cve-2021-41773-apache-http-server-path-traversal-remote-code-execution-via-mod-cgi-e9692ceb7e16' },
+                { title: 'CVE-2021-35042: Django QuerySet order_by SQL Injection', category: 'Vulnerability Research', date: 'Sep 2026', desc: 'Source-code review and exploit demonstration of CVE-2021-35042 in Django ORM, bypassing column validation to inject arbitrary SQL statements.', tag: 'CVE', link: 'https://medium.com/@utomoa448/cve-2021-35042-django-queryset-order-by-sql-injection-e201381ecc27' },
+                { title: 'Missing Person — TryHackMe', category: 'OSINT Investigation', date: 'Sep 2026', desc: 'Practical walkthrough of the Missing Person OSINT investigation on TryHackMe, demonstrating open-source intelligence gathering and digital footprint tracking.', tag: 'OSINT', link: 'https://medium.com/@utomoa448/missing-person-tryhackme-f1605ac5db61' },
+                { title: 'Masquerade — TryHackMe Challenge', category: 'Threat Hunting', date: 'Sep 2026', desc: 'Investigating process masquerading and defense evasion techniques through event log correlation and Windows endpoint forensics.', tag: 'Blue Team', link: 'https://medium.com/@utomoa448/masquerade-tryhackme-challenge-f4e2d3952450' },
+                { title: 'TShark Challenge II: Directory — TryHackMe', category: 'Packet Analysis', date: 'Sep 2026', desc: 'Advanced command-line network packet analysis with TShark, dissecting SMB/HTTP directory traversal and payload extraction from PCAP dumps.', tag: 'DFIR', link: 'https://medium.com/@utomoa448/tshark-challenge-ii-directory-aaca5294a939' },
+                { title: 'TShark Challenge I: Teamwork — TryHackMe', category: 'Network Forensics', date: 'Sep 2026', desc: 'Network packet analysis using TShark CLI to isolate compromised internal nodes, reconstruct TCP streams, and track malicious traffic.', tag: 'DFIR', link: 'https://medium.com/@utomoa448/tshark-challenge-i-teamwork-tryhackme-7e839e3c2168' },
+                { title: 'New Hire, Old Artifacts — TryHackMe', category: 'Endpoint Forensics', date: 'Aug 2026', desc: 'Endpoint investigation analyzing forensic artifacts, identifying adversary persistence, and uncovering unauthorized lateral movement.', tag: 'Forensic', link: 'https://medium.com/@utomoa448/new-hire-old-artifacts-tryhackme-0a29459cbfe5' },
+                { title: 'Disk Analysis & Autopsy — TryHackMe', category: 'Disk Forensics', date: 'Aug 2026', desc: 'In-depth disk forensics using Autopsy to inspect MFT records, carve unallocated space, and reconstruct attacker timeline activity.', tag: 'Forensic', link: 'https://medium.com/@utomoa448/disk-analysis-autopsy-tryhackme-9d3817344fb3' },
+                { title: 'Memory Forensics — TryHackMe Challenge', category: 'Memory Analysis', date: 'Aug 2026', desc: 'Volatile memory investigation utilizing Volatility 3 to uncover memory injection, hidden DLLs, and rootkit activity from raw RAM dumps.', tag: 'Forensic', link: 'https://medium.com/@utomoa448/memory-forensics-tryhackme-challenge-3389779bcc88' },
+                { title: 'PS Eclipse — TryHackMe Challenge', category: 'PowerShell Analysis', date: 'Aug 2026', desc: 'Analyzing heavily obfuscated malicious PowerShell scripts, deobfuscating payload layers, and identifying staging C2 infrastructure.', tag: 'Blue Team', link: 'https://medium.com/@utomoa448/ps-eclipse-tryhackme-challenge-eb5aa895e77e' },
+                { title: 'Shadow Trace — TryHackMe Challenge', category: 'Threat Hunting', date: 'Aug 2026', desc: 'Adversary tracking and threat intelligence analysis, correlating disparate network logs to identify covert command-and-control beacons.', tag: 'Blue Team', link: 'https://medium.com/@utomoa448/shadow-trace-tryhackme-challenge-f92e90bc4069' },
+                { title: 'Secret Recipe — TryHackMe Challenge', category: 'Incident Response', date: 'Aug 2026', desc: 'Digital incident response investigation resolving unauthorized data exfiltration, compromised service credentials, and internal leaks.', tag: 'Blue Team', link: 'https://medium.com/@utomoa448/secret-recipe-tryhackme-challenge-ba79355bae4d' },
+                { title: 'ItsyBitsy — TryHackMe Challenge', category: 'SIEM & Log Analysis', date: 'Aug 2026', desc: 'Investigating an incident via Elasticsearch and Kibana, tracking anomalous outbound connections and malicious IP interactions.', tag: 'SOC Ops', link: 'https://medium.com/@utomoa448/itsybitsy-tryhackme-challenge-27df6ee3a3dd' },
+                { title: 'Benign — TryHackMe Challenge', category: 'Splunk Alert Triage', date: 'Jul 2026', desc: 'Triage of enterprise security alerts in Splunk, distinguishing benign administrative events from living-off-the-land attacks.', tag: 'SOC Ops', link: 'https://medium.com/@utomoa448/benign-tryhackme-challenge-85fa2cb511b5' },
+                { title: 'Investigating with Splunk — TryHackMe', category: 'SIEM Investigation', date: 'Jul 2026', desc: 'Writing custom Splunk search processing language (SPL) queries to investigate a complex enterprise multi-stage cyber attack.', tag: 'SOC Ops', link: 'https://medium.com/@utomoa448/investigating-with-splunk-tryhackme-challenge-7440f7ed83c7' },
+                { title: 'Proxy — TryHackMe Challenge', category: 'Web Traffic Forensics', date: 'Jul 2026', desc: 'Forensic audit of forward and reverse HTTP proxy access logs to identify proxy tunneling, unauthorized pivoting, and web attacks.', tag: 'Blue Team', link: 'https://medium.com/@utomoa448/proxy-tryhackme-challenge-149646112815' },
+                { title: 'Support — TryHackMe Challenge', category: 'Active Directory', date: 'Jun 2026', desc: 'Penetration testing an Active Directory domain environment, covering SMB enumeration, credential hunting, and Kerberoasting.', tag: 'Red Team', link: 'https://medium.com/@utomoa448/support-tryhackme-challenge-b391803973ee' },
+                { title: 'Recruit — TryHackMe Challenge', category: 'Active Directory', date: 'Jun 2026', desc: 'Comprehensive AD exploitation path covering initial foothold, post-exploitation enumeration, and lateral movement to Domain Admin.', tag: 'Red Team', link: 'https://medium.com/@utomoa448/recruit-tryhackme-challenge-35fc7f65385a' },
+                { title: 'SOC336 - Windows OLE Zero-Click RCE (CVE-2025-21298)', category: 'Vulnerability Research', date: 'May 2026', desc: 'Investigating and triaging alerts related to CVE-2025-21298 Windows OLE Zero-Click RCE exploitation, identifying payload behaviors and malicious network traces.', tag: 'CVE', link: 'https://medium.com/@utomoa448/soc336-windows-ole-zero-click-rce-exploitation-detected-cve-2025-21298-9212f0eaf4f9' },
+                { title: '[ BTLO ] Network Analysis — Ransomware', category: 'Network Analysis', date: 'Jun 2026', desc: 'Deep-dive packet dissection investigating an enterprise ransomware intrusion, analyzing initial delivery vectors and lateral movement.', tag: 'Blue Team', link: 'https://medium.com/@utomoa448/btlo-network-analysis-ransomware-9dfa16574b77' },
+                { title: 'SOC127 - SQL Injection Detected', category: 'SOC Operations', date: 'May 2026', desc: 'SOC Tier 1 investigation and verification of SQL injection attempts against web applications, confirming payload efficacy and host impact.', tag: 'SOC Ops', link: 'https://medium.com/@utomoa448/soc127-sql-injection-detected-2a9b619e6571' },
+                { title: '[ Writed Up ] Hacktrace Rangers - LogBreaker', category: 'CTF Challenge', date: 'May 2026', desc: 'Technical write-up solving the LogBreaker challenge on Hacktrace Rangers, analyzing application server logs to identify web vulnerabilities.', tag: 'CTF', link: 'https://medium.com/@utomoa448/writed-up-hacktrace-rangers-logbreaker-f02efa1a57e2' },
+                { title: '[ Writed Up ] Hacktrace Rangers - PhishHunt', category: 'CTF Challenge', date: 'May 2026', desc: 'Technical write-up solving the PhishHunt challenge on Hacktrace Rangers, inspecting email headers and malicious phishing artifacts.', tag: 'CTF', link: 'https://medium.com/@utomoa448/writed-up-hacktrace-rangers-phishhunt-84821dbed70f' },
                 { title: 'Zerobank Lab Pentest', category: 'Web Pentest', date: 'Mar 2026', desc: 'A lab penetration testing report on the Zero Bank security environment, detailing discovery and exploitation of critical vulnerabilities.', tag: 'Lab', link: 'https://docs.google.com/document/d/1CBzjlEOUZx5HShZWMG9aT-OmagdKzjkv/edit' },
-                { title: 'Wazuh SIEM Deployment: SOC Lab Setup Guide', category: 'SOC Operations', date: 'Feb 2026', desc: 'A technical step-by-step guide on the deployment and configuration of Wazuh SIEM within a simulated SOC laboratory environment, focusing on the setup and integration process.', tag: 'Guide', link: 'https://drive.google.com/file/d/1juSU0ALh7sluLPbIi7N83WgdyvT8WFGY/view?usp=sharing' },
-                { title: 'Removable Media Forensics: Suspicious USB Artifact Recovery', category: 'Digital Forensic', date: 'Jan 2026', desc: 'A digital forensic examination of a suspicious USB drive, detailing bit-stream imaging and file carving to recover hidden artifacts and identify potential indicators of compromise.', tag: 'Forensic', link: 'https://docs.google.com/document/d/1HLeld6BUaaWGiYgWNAHWK6pdiW7pkn-r/edit?usp=sharing&ouid=101223023870245930597&rtpof=true&sd=true' },
-                { title: 'Digital Image Forensics: Metadata Analysis & Source Verification', category: 'Digital Forensic', date: 'Dec 2025', desc: 'Technical forensic analysis of digital images utilizing metadata extraction and hex-level examination to trace origins and identify manipulation attempts.', tag: 'Analysis', link: 'https://docs.google.com/document/d/1zA9IwMc41y55aXBN4Z2THU9n5o_tW1FF/edit?usp=sharing&ouid=101223023870245930597&rtpof=true&sd=true' },
-                { title: 'Identifying Internal Intruders via Network and File Analysis', category: 'Digital Forensic', date: 'Oct 2025', desc: 'A formal forensic investigation identifying an internal intruder through network traffic decryption (PCAP), credential recovery, and steganalysis using Wireshark and Steghide.', tag: 'Pro Justitia', link: 'https://docs.google.com/document/d/1VP7MZlxXiRGuFMXlFa6psOqn14ktm-Sb/edit?usp=sharing&ouid=101223023870245930597&rtpof=true&sd=true' },
-                { title: 'Leveraging OSINT Methodologies for Target Profiling', category: 'OSINT · Recon', date: 'Sep 2025', desc: 'A technical OSINT investigation on target profiling and digital footprint analysis using Google Dorking, Spiderfoot, and Wayback Machine to map target relationships.', tag: 'Recon', link: 'https://drive.google.com/file/d/16DdlbTDEpY1djrrCGm_XyxCmiN_q-GVk/view?usp=sharing' },
-                { title: 'SOC Incident Triage & Log Analysis: Monitoring System Exploitation Attempts', category: 'SOC Ops · Triage', date: 'Aug 2025', desc: 'A security log analysis and triage report identifying multi-vector attacks including SSH Brute Forcing and Nikto scans, focusing on True Positive validation.', tag: 'Blue Team', link: 'https://docs.google.com/spreadsheets/d/1JwKvvVSYWvpcMNKLUtpAC8pRZ0zOadUB/edit?usp=sharing&ouid=101223023870245930597&rtpof=true&sd=true' },
-                { title: 'Memory Forensics: Wanacrypt0r (WannaCry) Lifecycle Analysis', category: 'Incident Response', date: 'Nov 2025', desc: 'A volatile memory investigation of a system compromised by the Wanacrypt0r ransomware, dissecting malicious injects and cryptographic artifacts to reconstruct the infection lifecycle.', tag: 'Forensic', link: 'https://drive.google.com/file/d/1KoYAIIC-NRcG5BJDXLq6BOjyPaBZ8KMp/view?usp=sharing' },
-                { title: 'Investigating Internal SSH Log Anomalies & User Enumeration', category: 'Digital Forensic · SSH', date: 'Jul 2025', desc: 'A formal digital forensic investigation under a Pro Justitia framework to analyze SSH log activity, reconstructing the attack timeline and identifying source internal IPs.', tag: 'Pro Justitia', link: 'https://docs.google.com/document/d/1BUpJQ9_6cnVGezdZ9VnRoQ-drHDs8VIb/edit?usp=sharing&ouid=101223023870245930597&rtpof=true&sd=true' },
-              ].map((item, i) => (
-                <a key={i} href={item.link} target="_blank" rel="noreferrer" className={`reveal ${i > 0 ? `reveal-delay-${Math.min(i % 3, 2)}` : ''} bg-zinc-50 border border-zinc-100 rounded-2xl p-6 flex flex-col hover:border-zinc-300 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group cursor-pointer`}>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`px-2 py-0.5 text-[10px] font-semibold tracking-wider uppercase rounded ${
-                      item.tag === 'Pro Justitia' ? 'bg-red-50 text-red-600' :
-                      item.tag === 'Forensic' ? 'bg-purple-50 text-purple-600' :
-                      item.tag === 'CTF' ? 'bg-amber-50 text-amber-600' :
-                      item.tag === 'Lab' ? 'bg-emerald-50 text-emerald-600' :
-                      item.tag === 'Guide' ? 'bg-sky-50 text-sky-600' :
-                      item.tag === 'Analysis' ? 'bg-indigo-50 text-indigo-600' :
-                      item.tag === 'Recon' ? 'bg-orange-50 text-orange-600' :
-                      'bg-accent/5 text-accent'
-                    }`}>{item.tag}</span>
-                    <span className="text-[11px] text-zinc-400 font-medium">{item.date}</span>
-                  </div>
-                  <p className="text-[10px] text-accent font-semibold tracking-wider uppercase mb-1">{item.category}</p>
-                  <h3 className="font-headline font-bold text-base text-zinc-900 mb-2 leading-snug group-hover:text-accent transition-colors duration-200">{item.title}</h3>
-                  <p className="text-sm text-zinc-500 leading-relaxed flex-grow line-clamp-3">{item.desc}</p>
-                  <div className="mt-4 pt-4 border-t border-zinc-100 flex items-center justify-between">
-                    <span className="text-xs font-medium text-zinc-400 group-hover:text-accent transition-colors duration-200 flex items-center gap-1">
-                      Read Report <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+                { title: 'Wazuh SIEM Deployment: SOC Lab Setup Guide', category: 'SOC Operations', date: 'Feb 2026', desc: 'A technical step-by-step guide on the deployment and configuration of Wazuh SIEM within a simulated SOC laboratory environment.', tag: 'Guide', link: 'https://drive.google.com/file/d/1juSU0ALh7sluLPbIi7N83WgdyvT8WFGY/view?usp=sharing' },
+                { title: 'Removable Media Forensics: Suspicious USB Artifact Recovery', category: 'Digital Forensic', date: 'Jan 2026', desc: 'A digital forensic examination of a suspicious USB drive, detailing bit-stream imaging and file carving to recover hidden artifacts.', tag: 'Forensic', link: 'https://docs.google.com/document/d/1HLeld6BUaaWGiYgWNAHWK6pdiW7pkn-r/edit?usp=sharing&ouid=101223023870245930597&rtpof=true&sd=true' },
+                { title: 'Digital Image Forensics: Metadata Analysis & Source Verification', category: 'Digital Forensic', date: 'Dec 2025', desc: 'Technical forensic analysis of digital images utilizing metadata extraction and hex-level examination to trace origins and verify authenticity.', tag: 'Analysis', link: 'https://docs.google.com/document/d/1zA9IwMc41y55aXBN4Z2THU9n5o_tW1FF/edit?usp=sharing&ouid=101223023870245930597&rtpof=true&sd=true' },
+                { title: 'Identifying Internal Intruders via Network and File Analysis', category: 'Digital Forensic', date: 'Oct 2025', desc: 'A formal forensic investigation identifying an internal intruder through network traffic decryption (PCAP) and credential recovery.', tag: 'Pro Justitia', link: 'https://docs.google.com/document/d/1VP7MZlxXiRGuFMXlFa6psOqn14ktm-Sb/edit?usp=sharing&ouid=101223023870245930597&rtpof=true&sd=true' },
+                { title: 'Leveraging OSINT Methodologies for Target Profiling', category: 'OSINT · Recon', date: 'Sep 2025', desc: 'A technical OSINT investigation on target profiling and digital footprint analysis using Google Dorking, Spiderfoot, and Wayback Machine.', tag: 'Recon', link: 'https://drive.google.com/file/d/16DdlbTDEpY1djrrCGm_XyxCmiN_q-GVk/view?usp=sharing' },
+                { title: 'SOC Incident Triage & Log Analysis: Monitoring System Exploitation Attempts', category: 'SOC Ops · Triage', date: 'Aug 2025', desc: 'A security log analysis and triage report identifying multi-vector attacks including SSH Brute Forcing and Nikto scans.', tag: 'SOC Ops', link: 'https://docs.google.com/spreadsheets/d/1JwKvvVSYWvpcMNKLUtpAC8pRZ0zOadUB/edit?usp=sharing&ouid=101223023870245930597&rtpof=true&sd=true' },
+                { title: 'Memory Forensics: Wanacrypt0r (WannaCry) Lifecycle Analysis', category: 'Incident Response', date: 'Nov 2025', desc: 'A volatile memory investigation of a system compromised by the Wanacrypt0r ransomware, dissecting malicious injects and artifacts.', tag: 'Forensic', link: 'https://drive.google.com/file/d/1KoYAIIC-NRcG5BJDXLq6BOjyPaBZ8KMp/view?usp=sharing' },
+                { title: 'Investigating Internal SSH Log Anomalies & User Enumeration', category: 'Digital Forensic · SSH', date: 'Jul 2025', desc: 'A formal digital forensic investigation under a Pro Justitia framework to analyze SSH log activity and identify intruder IPs.', tag: 'Pro Justitia', link: 'https://docs.google.com/document/d/1BUpJQ9_6cnVGezdZ9VnRoQ-drHDs8VIb/edit?usp=sharing&ouid=101223023870245930597&rtpof=true&sd=true' },
+              ];
+
+              const itemsPerPage = 6;
+              const totalPages = Math.ceil(allWriteups.length / itemsPerPage);
+              const currentPage = Math.min(Math.max(1, writeupPage), totalPages);
+              const startIndex = (currentPage - 1) * itemsPerPage;
+              const currentItems = allWriteups.slice(startIndex, startIndex + itemsPerPage);
+
+              const handlePageChange = (newPage: number) => {
+                setWriteupPage(newPage);
+                const el = document.getElementById('writeups');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              };
+
+              return (
+                <>
+                  <div className="flex items-center justify-between mb-8 pb-4 border-b border-zinc-100 text-xs text-zinc-500">
+                    <span>
+                      Showing <strong className="text-zinc-800 font-semibold">{startIndex + 1}–{Math.min(startIndex + itemsPerPage, allWriteups.length)}</strong> of <strong className="text-zinc-800 font-semibold">{allWriteups.length}</strong> publications
+                    </span>
+                    <span>
+                      Page <strong className="text-zinc-800 font-semibold">{currentPage}</strong> of <strong className="text-zinc-800 font-semibold">{totalPages}</strong>
                     </span>
                   </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* ─── CREDENTIALS ─── */}
-        <section className="py-24 px-8 md:px-12 bg-zinc-900 text-white" id="credentials">
-          <div className="max-w-5xl mx-auto">
-            <SectionHeader dark label="Verified" title="Professional Credentials" description="Rigorous industry certifications validating deep technical proficiency in offensive and defensive cybersecurity." />
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {certs.map((item, i) => (
-                <div key={i} className={`reveal ${i > 0 ? `reveal-delay-${Math.min(i, 5)}` : ''} bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden hover:border-zinc-500 transition-colors duration-300 flex flex-col`}>
-                  <div className="aspect-[4/3] bg-zinc-100 border-b border-zinc-700 relative overflow-hidden flex items-center justify-center">
-                    {item.img ? (
-                      <img src={`${import.meta.env.BASE_URL}${item.img}`} alt={item.cert} className="w-full h-full object-contain p-6" loading="lazy" />
-                    ) : (
-                      <div className="flex flex-col items-center justify-center text-zinc-400">
-                        <span className="material-symbols-outlined text-4xl mb-1" style={{ fontVariationSettings: "'FILL' 1" }}>workspace_premium</span>
-                        <span className="text-[10px] font-medium tracking-wider uppercase">Verified Credential</span>
-                      </div>
-                    )}
-                    <span className="absolute top-4 right-4 px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-md bg-accent text-white">Verified</span>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {currentItems.map((item, i) => (
+                      <a key={`${currentPage}-${i}`} href={item.link} target="_blank" rel="noreferrer" className="bg-zinc-50 border border-zinc-200/80 rounded-2xl p-6 flex flex-col hover:border-zinc-400 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200 group cursor-pointer">
+                        <div className="flex items-center justify-between mb-4">
+                          <span className={`px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase rounded-md ${
+                            item.tag === 'CVE' ? 'bg-rose-50 text-rose-600 border border-rose-100' :
+                            item.tag === 'Red Team' ? 'bg-red-50 text-red-600 border border-red-100' :
+                            item.tag === 'SOC Ops' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
+                            item.tag === 'Blue Team' ? 'bg-sky-50 text-sky-600 border border-sky-100' :
+                            item.tag === 'DFIR' ? 'bg-violet-50 text-violet-600 border border-violet-100' :
+                            item.tag === 'OSINT' ? 'bg-teal-50 text-teal-600 border border-teal-100' :
+                            item.tag === 'Pro Justitia' ? 'bg-red-50 text-red-600 border border-red-100' :
+                            item.tag === 'Forensic' ? 'bg-purple-50 text-purple-600 border border-purple-100' :
+                            item.tag === 'CTF' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
+                            item.tag === 'Lab' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
+                            item.tag === 'Guide' ? 'bg-sky-50 text-sky-600 border border-sky-100' :
+                            item.tag === 'Analysis' ? 'bg-indigo-50 text-indigo-600 border border-indigo-100' :
+                            item.tag === 'Recon' ? 'bg-orange-50 text-orange-600 border border-orange-100' :
+                            'bg-accent/5 text-accent border border-accent/10'
+                          }`}>{item.tag}</span>
+                          <span className="text-[11px] text-zinc-400 font-medium">{item.date}</span>
+                        </div>
+                        <p className="text-[10px] text-accent font-semibold tracking-wider uppercase mb-1">{item.category}</p>
+                        <h3 className="font-headline font-bold text-base text-zinc-900 mb-2 leading-snug group-hover:text-accent transition-colors duration-200">{item.title}</h3>
+                        <p className="text-sm text-zinc-500 leading-relaxed flex-grow line-clamp-3">{item.desc}</p>
+                        <div className="mt-4 pt-4 border-t border-zinc-200/60 flex items-center justify-between">
+                          <span className="text-xs font-medium text-zinc-500 group-hover:text-accent transition-colors duration-200 flex items-center gap-1">
+                            Read Report <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+                          </span>
+                        </div>
+                      </a>
+                    ))}
                   </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="font-headline font-bold text-xl text-white mb-1">{item.cert}</h3>
-                    <p className="text-zinc-400 text-sm mb-4">{item.name}</p>
-                    <div className="mt-auto pt-4 border-t border-zinc-700">
-                      <span className="text-[10px] text-zinc-500 uppercase tracking-wider font-medium block mb-1">Issuing Organization</span>
-                      <span className="text-xs font-semibold text-accent">{item.org}</span>
+
+                  {/* Pagination Controls */}
+                  {totalPages > 1 && (
+                    <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
+                      <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className="px-3.5 py-2 rounded-xl text-xs font-semibold border border-zinc-200 bg-white text-zinc-600 hover:bg-zinc-50 disabled:opacity-30 disabled:pointer-events-none transition-all flex items-center gap-1 cursor-pointer"
+                      >
+                        <span className="material-symbols-outlined text-sm">chevron_left</span>
+                        <span>Prev</span>
+                      </button>
+
+                      {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((p) => (
+                        <button
+                          key={p}
+                          onClick={() => handlePageChange(p)}
+                          className={`w-9 h-9 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                            currentPage === p
+                              ? 'bg-zinc-900 text-white shadow-sm'
+                              : 'bg-white border border-zinc-200 text-zinc-700 hover:bg-zinc-100 hover:border-zinc-300'
+                          }`}
+                        >
+                          {p}
+                        </button>
+                      ))}
+
+                      <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="px-3.5 py-2 rounded-xl text-xs font-semibold border border-zinc-200 bg-white text-zinc-600 hover:bg-zinc-50 disabled:opacity-30 disabled:pointer-events-none transition-all flex items-center gap-1 cursor-pointer"
+                      >
+                        <span>Next</span>
+                        <span className="material-symbols-outlined text-sm">chevron_right</span>
+                      </button>
                     </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+                  )}
+                </>
+              );
+            })()}
           </div>
         </section>
       </main>
