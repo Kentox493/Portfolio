@@ -31,6 +31,16 @@ export default function App() {
     };
   }, []);
 
+  const [previewModal, setPreviewModal] = useState<{ img: string; title: string; subtitle?: string } | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setPreviewModal(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const [exp1Slide, setExp1Slide] = useState(0);
   const [exp2Slide, setExp2Slide] = useState(0);
   const [doscomSlide, setDoscomSlide] = useState(0);
@@ -40,12 +50,12 @@ export default function App() {
   const doscomPhotos = ['doscom2.jpeg', 'doscom3.jpeg', 'doscom4.jpeg', 'doscom5.jpeg', 'doscom6.jpeg', 'doscom7.jpeg', 'doscom8.jpeg', 'doscom9.jpeg'];
 
   const achievements = [
-    { company: 'OpenAI', year: 'Top 100', desc: 'Ranked within the Top 100 security researchers globally of all time in OpenAI\'s Bug Bounty Program.', type: 'Top 100 Global (All-Time)', img: 'hof-openai.jpg' },
+    { company: 'OpenAI', year: 'Top 100', desc: 'Ranked within the Top 100 security researchers globally of all time in OpenAI\'s Bug Bounty Program (#87 K3NT0).', type: 'Top 100 Global (All-Time)', img: 'hof-openai.png' },
     { company: 'TryHackMe', year: 'Top 1%', desc: 'Ranked in the Global Top 1% of cybersecurity practitioners on TryHackMe (#14,959), completing 240+ rooms with 39 badges.', type: 'Global Top 1% Rank', img: 'hof-tryhackme.png' },
-    { company: 'Arc Browser', year: 'Top 11', desc: 'Achieved the #11 spot in "The Browser Company of New York" Hall of Fame in 2025 for discovering and responsibly reporting multiple valid flaws.', type: 'Top 11 Researcher (2025)', img: 'hof-browsercompany.webp' },
-    { company: 'Brave Software', year: 'Top 21', desc: 'Ranked #21 in the Brave Software Bug Hunter Hall of Fame in 2025 following verified vulnerability disclosures.', type: 'Top 21 Researcher (2025)', img: 'hof-brave.jpg' },
-    { company: 'Perplexity AI', year: '2026', desc: 'Inducted into the Perplexity AI Vulnerability Disclosure Program (VDP) Hall of Fame for responsibly reporting valid security flaws.', type: 'VDP Hall of Fame', img: 'hof-perplexity.jpg' },
-    { company: 'Samsung Mobile', year: '2026', desc: 'Awarded a bounty by Samsung Mobile for identifying valid vulnerabilities within their self-hosted bug bounty program.', type: 'Bug Bounty Award', isBounty: true, img: 'hof-samsung.jpg' },
+    { company: 'The Browser Company of NYC', year: 'Top 11', desc: 'Ranked #11 globally in The Browser Company of NYC (Arc Browser) 2025 Hall of Fame (kento911) for multiple verified vulnerability disclosures.', type: 'Top 11 Researcher (2025)', img: 'hof-browsercompany.png' },
+    { company: 'Brave Software', year: 'Top 21', desc: 'Ranked #21 globally in the Brave Software 2025 Bug Hunter Hall of Fame (kento911) following verified vulnerability disclosures.', type: 'Top 21 Researcher (2025)', img: 'hof-brave.png' },
+    { company: 'Perplexity AI', year: '2026', desc: 'Inducted into the Perplexity AI Vulnerability Disclosure Program (VDP) Hall of Fame (K3NT0) for responsibly reporting valid security flaws.', type: 'VDP Hall of Fame', img: 'hof-perplexity.png' },
+    { company: 'Samsung Mobile', year: '2026', desc: 'Awarded security bounty & appreciation reward by Samsung Mobile Security for valid vulnerability submission (Ticket I-118259).', type: 'Bug Bounty Award', isBounty: true, img: 'hof-samsung.png' },
   ];
 
   const certs = [
@@ -263,24 +273,39 @@ export default function App() {
             <SectionHeader dark label="Verified" title="Professional Credentials" description="Rigorous industry certifications validating deep technical proficiency in offensive and defensive cybersecurity." />
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {certs.map((item, i) => (
-                <div key={i} className={`reveal ${i > 0 ? `reveal-delay-${Math.min(i, 5)}` : ''} bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden hover:border-zinc-500 transition-colors duration-300 flex flex-col`}>
+                <div
+                  key={i}
+                  onClick={() => item.img && setPreviewModal({ img: item.img, title: item.name, subtitle: `${item.cert} · ${item.org}` })}
+                  className={`reveal ${i > 0 ? `reveal-delay-${Math.min(i, 5)}` : ''} bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden hover:border-zinc-500 transition-all duration-300 flex flex-col ${item.img ? 'cursor-pointer group hover:shadow-xl' : ''}`}
+                >
                   <div className="aspect-[4/3] bg-zinc-100 border-b border-zinc-700 relative overflow-hidden flex items-center justify-center">
                     {item.img ? (
-                      <img src={`${import.meta.env.BASE_URL}${item.img}`} alt={item.cert} className="w-full h-full object-contain p-6" loading="lazy" />
+                      <>
+                        <img src={`${import.meta.env.BASE_URL}${item.img}`} alt={item.cert} className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-xs text-white font-medium backdrop-blur-[1px]">
+                          <span className="material-symbols-outlined text-base">zoom_in</span>
+                          Lihat Sertifikat
+                        </div>
+                      </>
                     ) : (
                       <div className="flex flex-col items-center justify-center text-zinc-400">
                         <span className="material-symbols-outlined text-4xl mb-1" style={{ fontVariationSettings: "'FILL' 1" }}>workspace_premium</span>
                         <span className="text-[10px] font-medium tracking-wider uppercase">Verified Credential</span>
                       </div>
                     )}
-                    <span className="absolute top-4 right-4 px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-md bg-accent text-white">Verified</span>
+                    <span className="absolute top-4 right-4 px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-md bg-accent text-white z-10">Verified</span>
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="font-headline font-bold text-xl text-white mb-1">{item.cert}</h3>
+                    <h3 className="font-headline font-bold text-xl text-white mb-1 group-hover:text-accent transition-colors">{item.cert}</h3>
                     <p className="text-zinc-400 text-sm mb-4">{item.name}</p>
-                    <div className="mt-auto pt-4 border-t border-zinc-700">
-                      <span className="text-[10px] text-zinc-500 uppercase tracking-wider font-medium block mb-1">Issuing Organization</span>
-                      <span className="text-xs font-semibold text-accent">{item.org}</span>
+                    <div className="mt-auto pt-4 border-t border-zinc-700 flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] text-zinc-500 uppercase tracking-wider font-medium block mb-1">Issuing Organization</span>
+                        <span className="text-xs font-semibold text-accent">{item.org}</span>
+                      </div>
+                      {item.img && (
+                        <span className="material-symbols-outlined text-sm text-zinc-500 group-hover:text-white transition-colors">open_in_full</span>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -295,19 +320,41 @@ export default function App() {
             <SectionHeader dark label="Proven Track Record" title="Achievements" description="From OpenAI's all-time Top 100 to global bug bounty rewards and Top 1% rankings—security research recognized worldwide." />
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {achievements.map((a, i) => (
-                <div key={i} className={`reveal ${i > 0 ? `reveal-delay-${Math.min(i, 5)}` : ''} bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden hover:border-zinc-500 transition-colors duration-300 flex flex-col`}>
+                <div
+                  key={i}
+                  onClick={() => setPreviewModal({ img: a.img, title: a.company, subtitle: `${a.type} · ${a.year}` })}
+                  className={`reveal ${i > 0 ? `reveal-delay-${Math.min(i, 5)}` : ''} bg-zinc-800 border border-zinc-700 rounded-2xl overflow-hidden hover:border-zinc-500 transition-all duration-300 flex flex-col group cursor-pointer hover:shadow-2xl`}
+                >
                   <div className="w-full aspect-[16/10] relative overflow-hidden bg-zinc-900 border-b border-zinc-700">
-                    <img src={`${import.meta.env.BASE_URL}${a.img}`} alt={a.company} className="w-full h-full object-cover" loading="lazy" />
-                    <span className="absolute top-4 right-4 px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-md bg-zinc-100 text-zinc-900 border border-transparent">
+                    <img
+                      src={`${import.meta.env.BASE_URL}${a.img}`}
+                      alt={a.company}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-xs text-white font-medium backdrop-blur-[1px]">
+                      <span className="material-symbols-outlined text-base">zoom_in</span>
+                      Lihat Bukti Foto
+                    </div>
+                    <span className="absolute top-4 right-4 px-2.5 py-1 text-[10px] font-bold tracking-wider uppercase rounded-md bg-zinc-100 text-zinc-900 border border-transparent z-10">
                       {a.year}
                     </span>
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="font-headline font-bold text-xl text-white mb-2">{a.company}</h3>
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-headline font-bold text-xl text-white group-hover:text-accent transition-colors">{a.company}</h3>
+                      <span className="material-symbols-outlined text-sm text-zinc-500 group-hover:text-white transition-colors">open_in_full</span>
+                    </div>
                     <p className="text-zinc-400 text-sm leading-relaxed flex-grow">{a.desc}</p>
-                    <div className="mt-5 pt-4 border-t border-zinc-700">
-                      <span className="text-[10px] text-zinc-500 uppercase tracking-wider font-medium block mb-1">Achievement</span>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-zinc-300">{a.type}</span>
+                    <div className="mt-5 pt-4 border-t border-zinc-700 flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] text-zinc-500 uppercase tracking-wider font-medium block mb-1">Achievement</span>
+                        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-300">{a.type}</span>
+                      </div>
+                      <span className="text-xs font-medium text-accent flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
+                        Bukti
+                        <span className="material-symbols-outlined text-xs">arrow_forward</span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -709,6 +756,54 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* ─── PROOF / IMAGE PREVIEW MODAL ─── */}
+      {previewModal && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setPreviewModal(null)}
+        >
+          <div
+            className="bg-zinc-900 border border-zinc-700 rounded-2xl max-w-5xl w-full overflow-hidden shadow-2xl relative flex flex-col max-h-[92vh] animate-fadeIn"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-4 px-6 border-b border-zinc-800 bg-zinc-900">
+              <div>
+                <h4 className="text-white font-headline font-bold text-base md:text-lg">{previewModal.title}</h4>
+                {previewModal.subtitle && (
+                  <p className="text-xs text-zinc-400 mt-0.5">{previewModal.subtitle}</p>
+                )}
+              </div>
+              <div className="flex items-center gap-2">
+                <a
+                  href={`${import.meta.env.BASE_URL}${previewModal.img}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors flex items-center gap-1.5 text-xs font-medium"
+                  title="Open full size in new tab"
+                >
+                  <span className="material-symbols-outlined text-base">open_in_new</span>
+                  <span className="hidden sm:inline">Buka Tab Baru</span>
+                </a>
+                <button
+                  onClick={() => setPreviewModal(null)}
+                  className="p-2 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition-colors cursor-pointer"
+                  aria-label="Close preview"
+                >
+                  <span className="material-symbols-outlined text-xl">close</span>
+                </button>
+              </div>
+            </div>
+            <div className="p-2 sm:p-6 bg-zinc-950/80 flex items-center justify-center overflow-auto">
+              <img
+                src={`${import.meta.env.BASE_URL}${previewModal.img}`}
+                alt={previewModal.title}
+                className="max-h-[75vh] w-auto max-w-full rounded-lg object-contain shadow-2xl border border-zinc-800"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
