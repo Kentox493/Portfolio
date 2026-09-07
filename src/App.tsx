@@ -158,7 +158,7 @@ export default function App() {
               LinkedIn
             </a>
             <a
-              href="https://drive.google.com/file/d/1Yv_PW5OFPW81vbdbP1xjThGN8VCSGG4c/view?usp=sharing"
+              href="https://drive.google.com/file/d/1kJYTXYk1NNJW2_JW-7oMLQ8edajuc1d6/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:flex items-center gap-1.5 text-xs font-medium text-zinc-500 hover:text-zinc-900 transition-colors cursor-pointer"
@@ -210,7 +210,7 @@ export default function App() {
                 LinkedIn
               </a>
               <a
-                href="https://drive.google.com/file/d/1Yv_PW5OFPW81vbdbP1xjThGN8VCSGG4c/view?usp=sharing"
+                href="https://drive.google.com/file/d/1kJYTXYk1NNJW2_JW-7oMLQ8edajuc1d6/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs font-medium text-zinc-600 hover:text-zinc-900 flex items-center gap-1"
@@ -266,7 +266,7 @@ export default function App() {
                 <a href="mailto:utomoa448@gmail.com" className="bg-zinc-900 text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-zinc-800 transition-colors duration-200 cursor-pointer">
                   Connect With Me
                 </a>
-                <a href="https://drive.google.com/file/d/1Yv_PW5OFPW81vbdbP1xjThGN8VCSGG4c/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-white text-zinc-900 border border-zinc-200 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-zinc-50 transition-colors duration-200 flex items-center gap-2 cursor-pointer">
+                <a href="https://drive.google.com/file/d/1kJYTXYk1NNJW2_JW-7oMLQ8edajuc1d6/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-white text-zinc-900 border border-zinc-200 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-zinc-50 transition-colors duration-200 flex items-center gap-2 cursor-pointer">
                   <span className="material-symbols-outlined text-base">download</span>
                   Download CV
                 </a>
