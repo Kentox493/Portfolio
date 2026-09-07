@@ -146,6 +146,18 @@ export default function App() {
 
           <div className="flex items-center gap-3">
             <a
+              href="https://www.linkedin.com/in/arya-widyanto-utomo-873100288"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex items-center gap-1.5 text-xs font-medium text-zinc-500 hover:text-[#0A66C2] transition-colors cursor-pointer"
+              title="LinkedIn Profile"
+            >
+              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a
               href="https://drive.google.com/file/d/1Yv_PW5OFPW81vbdbP1xjThGN8VCSGG4c/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
@@ -185,6 +197,28 @@ export default function App() {
                 {item.label}
               </a>
             ))}
+            <div className="pt-3 mt-2 border-t border-zinc-100 flex items-center gap-4">
+              <a
+                href="https://www.linkedin.com/in/arya-widyanto-utomo-873100288"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-medium text-zinc-600 hover:text-[#0A66C2] flex items-center gap-1.5"
+              >
+                <svg className="w-3.5 h-3.5 fill-[#0A66C2]" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/>
+                </svg>
+                LinkedIn
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1Yv_PW5OFPW81vbdbP1xjThGN8VCSGG4c/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-medium text-zinc-600 hover:text-zinc-900 flex items-center gap-1"
+              >
+                <span className="material-symbols-outlined text-sm">download</span>
+                Resume
+              </a>
+            </div>
           </div>
         )}
       </header>
@@ -235,6 +269,12 @@ export default function App() {
                 <a href="https://drive.google.com/file/d/1Yv_PW5OFPW81vbdbP1xjThGN8VCSGG4c/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-white text-zinc-900 border border-zinc-200 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-zinc-50 transition-colors duration-200 flex items-center gap-2 cursor-pointer">
                   <span className="material-symbols-outlined text-base">download</span>
                   Download CV
+                </a>
+                <a href="https://www.linkedin.com/in/arya-widyanto-utomo-873100288" target="_blank" rel="noopener noreferrer" className="bg-white text-zinc-900 border border-zinc-200 px-5 py-3 rounded-lg font-semibold text-sm hover:bg-zinc-50 hover:border-zinc-300 transition-colors duration-200 flex items-center gap-2 cursor-pointer">
+                  <svg className="w-4 h-4 fill-[#0A66C2]" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/>
+                  </svg>
+                  <span>LinkedIn</span>
                 </a>
               </div>
             </div>
@@ -752,7 +792,7 @@ export default function App() {
           </div>
           <div className="flex gap-6">
             <a className="text-xs font-medium text-zinc-500 hover:text-white transition-colors" href="mailto:utomoa448@gmail.com">Email</a>
-            <a className="text-xs font-medium text-zinc-500 hover:text-white transition-colors" href="https://tinyurl.com/mry5bad3" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a className="text-xs font-medium text-zinc-500 hover:text-white transition-colors" href="https://www.linkedin.com/in/arya-widyanto-utomo-873100288" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>
       </footer>
